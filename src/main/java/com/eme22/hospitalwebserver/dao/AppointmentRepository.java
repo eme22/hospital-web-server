@@ -21,6 +21,8 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long>,
 
     List<Appointment> findByPatientByPatientId_Dni(@NonNull long dni);
 
+    List<Appointment> findByPatientByPatientId_DniAndFinished(long dni, boolean finished);
+
 
 
 }
