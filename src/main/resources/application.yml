@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/hospitalDB2}
+    url: "jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}"
     username: ${PGUSER:postgres}
     password: ${PGPASSWORD:postgres}
     driverClassName: org.postgresql.Driver
