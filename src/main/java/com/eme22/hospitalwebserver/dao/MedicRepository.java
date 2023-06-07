@@ -1,10 +1,17 @@
 package com.eme22.hospitalwebserver.dao;
 
 import com.eme22.hospitalwebserver.model.Medic;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.lang.NonNull;
 
+import java.time.LocalDate;
+import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -13,5 +20,11 @@ import java.util.List;
 @RepositoryRestResource(path = "medic")
 public interface MedicRepository extends JpaRepository<Medic, Long>, JpaSpecificationExecutor<Medic> {
     List<Medic> findBySpecialityBySpecId_Id(long id);
+
+    List<Medic> findByHolidays_DateIsNot(LocalDate date, Pageable pageable);
+
+    //List<Medic> findByHolidays_DateNot(LocalDate holidays_date);
+
+
 
 }

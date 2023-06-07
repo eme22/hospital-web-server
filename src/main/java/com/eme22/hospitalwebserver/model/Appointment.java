@@ -1,10 +1,13 @@
 package com.eme22.hospitalwebserver.model;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -29,7 +32,7 @@ public class Appointment {
     private boolean finished;
     
     @Column(name = "date")
-    private Date date;
+    private LocalDate date;
     
     @Column(name = "result")
     private String result;

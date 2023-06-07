@@ -19,3 +19,8 @@ spring:
       platform: postgres
       mode: embedded
       continue-on-error: true
+  mvc:
+    format:
+      date: yyyy-MM-dd
+  jackson:
+    date-format: yyyy-MM-dd

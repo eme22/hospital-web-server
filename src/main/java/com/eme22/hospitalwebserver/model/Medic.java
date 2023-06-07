@@ -1,10 +1,15 @@
 package com.eme22.hospitalwebserver.model;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -57,6 +62,8 @@ public class Medic {
     @JoinColumn(name = "spec_id", referencedColumnName = "id", nullable = false)
     private Speciality specialityBySpecId;
 
+    @OneToMany(mappedBy="medic", cascade=CascadeType.ALL)
+    private List<Holiday> holidays = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {
@@ -70,4 +77,5 @@ public class Medic {
     public int hashCode() {
         return getClass().hashCode();
     }
+
 }
