@@ -8,6 +8,7 @@ import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -32,7 +33,7 @@ public class Appointment {
     private boolean finished;
     
     @Column(name = "date")
-    private LocalDate date;
+    private LocalDateTime date;
     
     @Column(name = "result")
     private String result;
