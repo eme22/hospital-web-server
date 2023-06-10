@@ -22,10 +22,10 @@ public interface MedicRepository extends JpaRepository<Medic, Long>, JpaSpecific
     List<Medic> findBySpecialityBySpecId_Id(long id);
 
     @Query("SELECT m FROM Medic m WHERE m.id NOT IN (SELECT h.medic.id FROM Holiday h WHERE h.date = ?1)")
-    List<Medic> findByHolidays_DateIsNotIn(LocalDate dates, Pageable pageable);
+    List<Medic> findByHolidays_DateIsNotIn(LocalDate date, Pageable pageable);
 
     @Query("SELECT m FROM Medic m WHERE m.id IN (SELECT h.medic.id FROM Holiday h WHERE h.date = ?1)")
-    List<Medic> findByHolidays_DateIsIn(LocalDate dates, Pageable pageable);
+    List<Medic> findByHolidays_DateIsIn(LocalDate date, Pageable pageable);
 
 
 
