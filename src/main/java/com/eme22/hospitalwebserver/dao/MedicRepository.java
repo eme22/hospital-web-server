@@ -21,9 +21,13 @@ import java.util.List;
 public interface MedicRepository extends JpaRepository<Medic, Long>, JpaSpecificationExecutor<Medic> {
     List<Medic> findBySpecialityBySpecId_Id(long id);
 
-    List<Medic> findByHolidays_DateIsNot(LocalDate date, Pageable pageable);
+    @Query("SELECT m FROM Medic m WHERE m.id NOT IN (SELECT h.medic.id FROM Holiday h WHERE h.date = ?1)")
+    List<Medic> findByHolidays_DateIsNotIn(LocalDate dates, Pageable pageable);
 
-    //List<Medic> findByHolidays_DateNot(LocalDate holidays_date);
+    @Query("SELECT m FROM Medic m WHERE m.id IN (SELECT h.medic.id FROM Holiday h WHERE h.date = ?1)")
+    List<Medic> findByHolidays_DateIsIn(LocalDate dates, Pageable pageable);
+
+
 
 
 
