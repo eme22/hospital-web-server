@@ -63,6 +63,7 @@ public class Medic {
     private Speciality specialityBySpecId;
 
     @OneToMany(mappedBy="medic", cascade=CascadeType.ALL)
+    @ToString.Exclude
     private List<Holiday> holidays = new ArrayList<>();
 
     @Override
