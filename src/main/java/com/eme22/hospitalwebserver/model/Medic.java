@@ -52,17 +52,17 @@ public class Medic {
     
     @Column(name = "age")
     private int age;
-    @OneToMany(mappedBy = "medicByMedicId")
+    @OneToMany(mappedBy = "medicByMedicId", fetch = FetchType.LAZY)
     @ToString.Exclude
     private Collection<Appointment> appointmentsById;
-    @ManyToOne
+    @ManyToOne( fetch = FetchType.EAGER )
     @JoinColumn(name = "area_id", referencedColumnName = "id", nullable = false)
     private Area areaByAreaId;
-    @ManyToOne
+    @ManyToOne( fetch = FetchType.EAGER )
     @JoinColumn(name = "spec_id", referencedColumnName = "id", nullable = false)
     private Speciality specialityBySpecId;
 
-    @OneToMany(mappedBy="medic", cascade=CascadeType.ALL)
+    @OneToMany(mappedBy="medic", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
     @ToString.Exclude
     private List<Holiday> holidays = new ArrayList<>();
 

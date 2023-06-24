@@ -43,7 +43,7 @@ public class Appointment {
     @ManyToOne
     @JoinColumn(name = "patient_id", referencedColumnName = "id", nullable = false)
     private Patient patientByPatientId;
-    @OneToMany(mappedBy = "appointmentByAppointmentId")
+    @OneToMany(mappedBy = "appointmentByAppointmentId", fetch = FetchType.EAGER)
     @ToString.Exclude
     private Collection<Prescription> prescriptionsById;
 

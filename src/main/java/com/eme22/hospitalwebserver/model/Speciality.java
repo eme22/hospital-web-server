@@ -26,7 +26,7 @@ public class Speciality {
     
     @Column(name = "description")
     private String description;
-    @OneToMany(mappedBy = "specialityBySpecId")
+    @OneToMany(mappedBy = "specialityBySpecId", fetch = FetchType.LAZY)
     @ToString.Exclude
     private Collection<Medic> medicsById;
 

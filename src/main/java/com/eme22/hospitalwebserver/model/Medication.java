@@ -28,7 +28,7 @@ public class Medication {
     
     @Column(name = "number")
     private int number;
-    @OneToMany(mappedBy = "medicationByMedicationId")
+    @OneToMany(mappedBy = "medicationByMedicationId", fetch = FetchType.EAGER)
     @ToString.Exclude
     private Collection<Prescription> prescriptionsById;
 

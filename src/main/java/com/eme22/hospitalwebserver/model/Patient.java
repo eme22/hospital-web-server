@@ -47,7 +47,7 @@ public class Patient {
     
     @Column(name = "age")
     private int age;
-    @OneToMany(mappedBy = "patientByPatientId")
+    @OneToMany(mappedBy = "patientByPatientId", fetch = FetchType.LAZY)
     @ToString.Exclude
     private Collection<Appointment> appointmentsById;
 

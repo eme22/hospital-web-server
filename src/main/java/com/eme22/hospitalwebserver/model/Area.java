@@ -25,7 +25,7 @@ public class Area {
     
     @Column(name = "description")
     private String description;
-    @OneToMany(mappedBy = "areaByAreaId")
+    @OneToMany(mappedBy = "areaByAreaId", fetch = FetchType.LAZY)
     @ToString.Exclude
     private Collection<Medic> medicsById;
 
