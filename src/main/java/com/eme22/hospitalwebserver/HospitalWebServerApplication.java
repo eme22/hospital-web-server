@@ -19,7 +19,7 @@ import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
-@SpringBootApplication(exclude = RepositoryRestMvcAutoConfiguration.class)
+@SpringBootApplication
 @EnableJpaRepositories("com.eme22.hospitalwebserver.*")
 @ComponentScan(basePackages = { "com.eme22.hospitalwebserver.*" })
 @EntityScan("com.eme22.hospitalwebserver.*")
