@@ -8,6 +8,7 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -30,7 +31,7 @@ public class Medication {
     private int number;
     @OneToMany(mappedBy = "medicationByMedicationId", fetch = FetchType.EAGER)
     @ToString.Exclude
-    private Collection<Prescription> prescriptionsById;
+    private Set<Prescription> prescriptionsById;
 
     @Override
     public boolean equals(Object o) {

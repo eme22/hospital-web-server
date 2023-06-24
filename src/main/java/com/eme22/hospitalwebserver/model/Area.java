@@ -8,6 +8,7 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -27,7 +28,7 @@ public class Area {
     private String description;
     @OneToMany(mappedBy = "areaByAreaId", fetch = FetchType.LAZY)
     @ToString.Exclude
-    private Collection<Medic> medicsById;
+    private Set<Medic> medicsById;
 
     @Override
     public boolean equals(Object o) {

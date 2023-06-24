@@ -7,10 +7,7 @@ import lombok.ToString;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Getter
@@ -64,7 +61,7 @@ public class Medic {
 
     @OneToMany(mappedBy="medic", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
     @ToString.Exclude
-    private List<Holiday> holidays = new ArrayList<>();
+    private Set<Holiday> holidays;
 
     @Override
     public boolean equals(Object o) {

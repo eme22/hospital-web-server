@@ -6,6 +6,7 @@ import org.hibernate.Hibernate;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -49,7 +50,7 @@ public class Patient {
     private int age;
     @OneToMany(mappedBy = "patientByPatientId", fetch = FetchType.LAZY)
     @ToString.Exclude
-    private Collection<Appointment> appointmentsById;
+    private Set<Appointment> appointmentsById;
 
     @Override
     public boolean equals(Object o) {

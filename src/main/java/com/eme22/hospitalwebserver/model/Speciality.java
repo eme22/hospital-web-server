@@ -6,6 +6,7 @@ import org.hibernate.Hibernate;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -28,7 +29,7 @@ public class Speciality {
     private String description;
     @OneToMany(mappedBy = "specialityBySpecId", fetch = FetchType.LAZY)
     @ToString.Exclude
-    private Collection<Medic> medicsById;
+    private Set<Medic> medicsById;
 
     @Override
     public boolean equals(Object o) {

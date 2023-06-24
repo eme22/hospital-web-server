@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -45,7 +46,7 @@ public class Appointment {
     private Patient patientByPatientId;
     @OneToMany(mappedBy = "appointmentByAppointmentId", fetch = FetchType.EAGER)
     @ToString.Exclude
-    private Collection<Prescription> prescriptionsById;
+    private Set<Prescription> prescriptionsById;
 
     @Override
     public boolean equals(Object o) {
