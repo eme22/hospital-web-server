@@ -3,6 +3,7 @@ package com.eme22.hospitalwebserver;
 import com.eme22.hospitalwebserver.model.Medic;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.data.rest.RepositoryRestMvcAutoConfiguration;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -18,7 +19,7 @@ import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = RepositoryRestMvcAutoConfiguration.class)
 @EnableJpaRepositories("com.eme22.hospitalwebserver.*")
 @ComponentScan(basePackages = { "com.eme22.hospitalwebserver.*" })
 @EntityScan("com.eme22.hospitalwebserver.*")
