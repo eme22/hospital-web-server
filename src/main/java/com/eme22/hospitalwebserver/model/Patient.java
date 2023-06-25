@@ -1,10 +1,12 @@
 package com.eme22.hospitalwebserver.model;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.Objects;
 import java.util.Set;
 

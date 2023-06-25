@@ -1,6 +1,6 @@
 package com.eme22.hospitalwebserver.util;
 
-import com.eme22.hospitalwebserver.dao.AppointmentRepository;
+import com.eme22.hospitalwebserver.repository.AppointmentRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;

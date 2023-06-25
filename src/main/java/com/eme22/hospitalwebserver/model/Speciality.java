@@ -1,5 +1,6 @@
 package com.eme22.hospitalwebserver.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.Hibernate;
 
@@ -29,6 +30,7 @@ public class Speciality {
     private String description;
     @OneToMany(mappedBy = "specialityBySpecId", fetch = FetchType.LAZY)
     @ToString.Exclude
+    @JsonIgnore
     private Set<Medic> medicsById;
 
     @Override

@@ -1,5 +1,6 @@
 package com.eme22.hospitalwebserver.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -28,6 +29,7 @@ public class Area {
     private String description;
     @OneToMany(mappedBy = "areaByAreaId", fetch = FetchType.LAZY)
     @ToString.Exclude
+    @JsonIgnore
     private Set<Medic> medicsById;
 
     @Override

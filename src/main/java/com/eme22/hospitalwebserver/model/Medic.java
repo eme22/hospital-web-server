@@ -51,7 +51,7 @@ public class Medic {
     private int age;
     @OneToMany(mappedBy = "medicByMedicId", fetch = FetchType.LAZY)
     @ToString.Exclude
-    private Collection<Appointment> appointmentsById;
+    private Set<Appointment> appointmentsById;
     @ManyToOne( fetch = FetchType.EAGER )
     @JoinColumn(name = "area_id", referencedColumnName = "id", nullable = false)
     private Area areaByAreaId;

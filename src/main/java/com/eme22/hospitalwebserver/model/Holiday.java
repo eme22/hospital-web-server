@@ -34,6 +34,7 @@ public class Holiday {
 
     @ManyToOne
     @JoinColumn(name="medicId")
+    @JsonIgnore
     private Medic medic;
 
 
