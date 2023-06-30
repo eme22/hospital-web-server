@@ -1,5 +1,6 @@
 package com.eme22.hospitalwebserver.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -30,8 +31,9 @@ public class Appointment {
     
     @Column(name = "finished")
     private boolean finished;
-    
+
     @Column(name = "date")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", shape = JsonFormat.Shape.STRING)
     private LocalDateTime date;
     
     @Column(name = "result")

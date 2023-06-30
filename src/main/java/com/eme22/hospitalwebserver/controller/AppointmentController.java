@@ -32,6 +32,12 @@ public class AppointmentController {
         return ResponseEntity.ok(appointments);
     }
 
+    @GetMapping("/search/findByPatientByPatientId_DniAndNotFinished")
+    public ResponseEntity<List<Appointment>> getUnFinishedAppointments(@RequestParam(name = "dni") long id) {
+        List<Appointment> appointments = appointmentService.getUnFinishedAppointmentByDni(id);
+        return ResponseEntity.ok(appointments);
+    }
+
     @GetMapping("/search/findByMedicByMedicId_Id")
     public ResponseEntity<List<Appointment>> getMedicAppointmentsById(@RequestParam(name = "id") long id) {
         List<Appointment> appointments = appointmentService.getAppointmentsByMedicId(id);
@@ -52,9 +58,15 @@ public class AppointmentController {
     }
 
     @PostMapping
-    public ResponseEntity<Appointment> saveAppointment(@RequestBody Appointment appointment) {
-        Appointment savedAppointment = appointmentService.saveAppointment(appointment);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedAppointment);
+    public ResponseEntity<?> saveAppointment(@RequestBody Appointment appointment) {
+        try  {
+            Appointment savedAppointment = appointmentService.saveAppointment(appointment);
+            return ResponseEntity.status(HttpStatus.CREATED).body(savedAppointment);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.internalServerError().body(e.getMessage());
+        }
+
     }
 
 

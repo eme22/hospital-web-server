@@ -1,5 +1,6 @@
 package com.eme22.hospitalwebserver.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -52,6 +53,7 @@ public class Patient {
     private int age;
     @OneToMany(mappedBy = "patientByPatientId", fetch = FetchType.LAZY)
     @ToString.Exclude
+    @JsonIgnore
     private Set<Appointment> appointmentsById;
 
     @Override

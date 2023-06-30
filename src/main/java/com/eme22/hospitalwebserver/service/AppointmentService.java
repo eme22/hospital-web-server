@@ -37,6 +37,10 @@ public class AppointmentService {
         return appointmentRepository.findByPatientByPatientId_DniAndFinished(dni, true);
     }
 
+    public List<Appointment> getUnFinishedAppointmentByDni(long dni) {
+        return appointmentRepository.findByPatientByPatientId_DniAndFinished(dni, false);
+    }
+
     public List<Appointment> getAppointmentsByMedicDni(long dni) {
         return appointmentRepository.findByMedicByMedicId_Dni(dni);
     }
