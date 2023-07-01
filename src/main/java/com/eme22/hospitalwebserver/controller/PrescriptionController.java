@@ -26,6 +26,13 @@ public class PrescriptionController {
         return ResponseEntity.ok(prescriptions);
     }
 
+    @GetMapping("/search/findByPrescrition_AppointmentId")
+    public ResponseEntity<List<Prescription>> getAllPrescriptions(@PathVariable long id) {
+        List<Prescription> prescriptions = prescriptionService.getPrescriptionByAppointmentId(id);
+        return ResponseEntity.ok(prescriptions);
+    }
+
+
     @GetMapping("/{id}")
     public ResponseEntity<Prescription> getPrescriptionById(@PathVariable long id) {
         Optional<Prescription> prescription = prescriptionService.getPrescriptionById(id);

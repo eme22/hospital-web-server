@@ -25,6 +25,12 @@ public class PrescriptionService {
         return prescriptionRepository.findById(id);
     }
 
+    public List<Prescription> getPrescriptionByAppointmentId(long id) {
+        return prescriptionRepository.findByAppointmentByAppointmentId_Id(id);
+    }
+
+
+
     public Prescription savePrescription(Prescription prescription) {
         return prescriptionRepository.save(prescription);
     }
